@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Form Input Data Peserta</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+      font-family: Arial, sans-serif;
+      padding: 0;
+      margin: 0;
+      background-color: #f8f9fa;
+    }
+
+    .navbar {
+      background-color: #212529;
+      color: #fff;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .navbar-brand {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 20px;
+    }
+
+    .navbar-nav {
+      display: flex;
+      gap: 15px;
+    }
+
+    .nav-link {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .nav-link:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .col-md-4 {
+      width: 100%;
+      max-width: calc(33.333% - 20px);
+      box-sizing: border-box;
+    }
+
+    .card {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    .form-container {
+      background: #fff;
+      padding: 30px 25px;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .form-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 1.5rem;
+      color: #333;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 600;
+      color: #555;
+    }
+
+    input[type="text"],
+    input[type="number"] {
+      width: 100%;
+      padding: 10px 12px;
+      margin-bottom: 18px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+    }
+
+    input[type="text"]:focus,
+    input[type="number"]:focus {
+      border-color: #007bff;
+      outline: none;
+    }
+
+    button-link {
+  display: inline-block;
+  margin-top: 10px;
+  text-align: center;
+  background-color: #6c757d;
+  color: #fff;
+  padding: 10px 12px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+button-link:hover {
+  background-color: #5a6268;
+}
+
+    .card-body {
+      padding: 15px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card-title {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .card-text {
+      font-size: 14px;
+      flex: 1;
+      margin-bottom: 10px;
+    }
+
+    .price {
+      font-weight: bold;
+      color: #444;
+      margin-bottom: 10px;
+    }
+
+    .btn {
+      padding: 10px 15px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      border-radius: 4px;
+      text-align: center;
+    }
+
+    .btn:hover {
+      background-color: #0056b3;
+    }
+
+    #sosial {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    #sosial a {
+      text-decoration: none;
+      color: #007bff;
+      margin: 0 5px;
+    }
+
+    #sosial a:hover {
+      text-decoration: underline;
+    }
+
+    h3 {
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      .col-md-4 {
+        max-width: 100%;
+      }
+
+      .navbar-nav {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 10px;
+      }
+     
+      button-link:hover {
+      background-color: #5a6268;
+      }
+
+    @media (max-width: 480px) {
+      .form-container {
+        padding: 20px 15px;
+      }
+
+      .form-container h2 {
+        font-size: 1.3rem;
+      }
+    }
+    }
+  </style>
+</head>
+<body>
+<!-- Navbar -->
+  <nav class="navbar">
+    <a class="navbar-brand" href="#">Input Data Peserta</a>
+    <div class="navbar-nav">
+      <a class="nav-link" href="index.html">Beranda</a>
+      <a class="nav-link" href="register.html">Register</a>
+      <a class="nav-link" href="login.html">Login</a>
+    </div>
+    
+  </nav>
+  <div class="form-container">
+    <form action="inputdata_json.php" method="post">
+      <label for="kode">Kode Peserta</label>
+      <input type="text" id="kode" name="kode" required />
+
+      <label for="nama">Nama Peserta</label>
+      <input type="text" id="nama" name="nama" required />
+
+      <label for="email">Email</label>
+      <input type="text" id="email" name="email" required />
+
+      <label for="nohp">No HP</label>
+      <input type="number" id="nohp" name="nohp" required />
+
+      <label for="alamat">Alamat</label>
+      <input type="text" id="alamat" name="alamat" required />
+
+      <button type="submit">Simpan</button>
+      <a href="viewpeserta_json.php" class="button-link">Lihat Data</a>
+    <center><h5>&copy; 2025 <a href="#">Syarif NurHidayah</a></h5></center>
+    </form>
+  </div>
+  
+</body>
+</html>
